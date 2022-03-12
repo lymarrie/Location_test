@@ -47,8 +47,8 @@ export function locationJSONtoHTML(entityProfile, index, locationOptions) {
   let cardTitleLinkUrlValue = getValue(locationOptions.cardTitleLinkUrl);
   const hoursValue = getValue(locationOptions.hours);
   const addressValue = getValue(locationOptions.address);
-  const phone = getValue(locationOptions.phoneNumber);
-  const phoneNumberValue=phone.toString();
+  // const phone = getValue(locationOptions.phoneNumber);
+  // const phoneNumberValue=phone.toString();
   let viewDetailsLinkUrlValue = getValue(locationOptions.viewDetailsLinkUrl);
 
   let html =
@@ -110,6 +110,8 @@ export function locationJSONtoHTML(entityProfile, index, locationOptions) {
   html += '<div class="address text-[12px] font-normal text-[#928f8c] leading-tight uppercase mb-1 pr-5 pl-10 md:pl-6 lg:pl-16">';
   html += addressValue.line1 + ', ' + addressValue.city + ', ' + addressValue.region + ', ' + addressValue.postalCode + ', ' + addressValue.countryCode+'<br/>';
 
+/*
+
   if (phoneNumberValue) {
     const formattedPhoneNumber = formatPhone(
       phoneNumberValue,
@@ -119,6 +121,9 @@ export function locationJSONtoHTML(entityProfile, index, locationOptions) {
       html += '<div class="phone">' + formattedPhoneNumber + "</div>";
     }
   }
+  
+*/
+  
   html += "</div>";
   html += '<div class="lp-param-results lp-subparam-phoneNumber">';
   
