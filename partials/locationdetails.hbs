@@ -1,0 +1,23 @@
+<div class="grid gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+
+    <div class="grid gap-y-10 md:grid-cols-1 lg:grid-cols-2 lg:col-span-2">
+        <div class='address'>
+            <h2 class="mb-3">Address</h3>
+            <a id="address" class="hover:underline" href="https://www.google.com/maps/dir/?api=1&destination={{address.line1}} {{address.city}} {{address.region}} {{address.postalCode}}" target="_blank">
+                <div>{{address.line1}}</div>
+                <div>{{address.city}}, {{address.region}} {{address.postalCode}}</div>
+                <div>{{address.countryCode}}</div></a>
+        </div>
+
+        <div class="phone">
+            <h2 class="mb-3">Contact</h3>
+            <p><span>&#128222;</span> {{phoneNumber "US" mainPhone "NATIONAL"}}</p>
+        </div>
+    </div>
+
+    <div class="hours">
+        <h2 class="mb-3">Hours</h3>
+        <div>{{>hours hours}}</div>
+    </div>
+
+</div>

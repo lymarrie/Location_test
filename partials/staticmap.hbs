@@ -1,0 +1,14 @@
+<div>
+  <img
+    class="w-full"
+    alt="Static Google map for {{name}} - {{neighborhood}}"
+    width="300"
+    height="200"
+    src="https://maps.googleapis.com/maps/api/staticmap?size=600x400&maptype=roadmap
+       &markers=color:red%7C
+      {{geocodedCoordinate.latitude}}
+       ,
+      {{geocodedCoordinate.longitude}}
+       &key={{global.googleApiKey}}&zoom=15"
+  />
+</div>

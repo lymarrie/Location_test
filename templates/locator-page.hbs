@@ -1,0 +1,125 @@
+---
+{
+    "urlFormat" : "index.html"
+}
+---
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {{>head }}
+        <title>Store Locator</title>
+        <link rel="shortcut icon" type="image/jpg" href="/images/yext-favicon.png"/>
+        
+        <script>
+                console.log("defining initMaps Functions");
+                var initMapsFunctions = [];
+                var initMaps = function(noKey) {
+                    for (i = 0; i < initMapsFunctions.length; i++) {
+                        initMapsFunctions[i](noKey);
+                    }
+                }
+        </script>
+        <script>
+            function loadScriptAsync(url) {
+                return new Promise((resolve, reject) => {
+                    const script = document.createElement("script");
+                    script.type = 'text/javascript';
+                    script.async = true;
+                    script.defer = true;
+                    script.onload = resolve;
+                    script.onerror = reject;
+                    script.src = url;
+                    document.head.appendChild(script);
+                });
+            }
+            window.mapsLoader = loadScriptAsync("https://maps.googleapis.com/maps/api/js?key={{global.googleApiKey}}&callback=initMaps&libraries=places");
+        </script>
+        
+        <script>
+        
+        /*
+      document.addEventListener("DOMContentLoaded", function () {
+        var baseURL = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?";
+        var api_key = "{{global.liveApiKey}}";
+        var vparam = "20181017";   
+        var entityTypes = "ce_departments";    
+        
+        var fullURL =
+            baseURL +
+            "api_key=" +
+            api_key +
+            "&v=" +
+            vparam + 
+            "&entityTypes=" +
+            entityTypes ;
+            
+        [].slice
+            .call(document.querySelectorAll(".location-data") || [])
+            .forEach(function (el) {
+                el.innerHTML = '<div class="col">Loading...</div>';
+            });
+        
+            fetch(fullURL).then(response => response.json()).then(result => {
+            
+                if (!result.errors) {
+                            if (result.response.count > 0) {
+                                var html = '';
+                                $.each(result.response.entities, function (index, entity) {
+                                    html += '<li class="department-list-item w-1/4 mb-4" data-name="' + entity.name + '" data-id="' + entity.meta.id + '" >';
+                                    html += '<div class="form-check relative"><input class="checkbox_departments absolute top-0 left-0 " type="checkbox" name="c_departments[]" value="' + entity.meta.id + '" id="' + entity.name + '">';
+                                    html += '<label class="relative pl-7 text-sm font-Futura font-light cursor-pointer" for="' + entity.name + '"> ' + entity.name + '</label>';
+                                    html += '</li>';
+                                });
+                                $(".department-list").html(html);
+                                
+                              $(".checkbox_departments").change(function() {                                    
+                                getLocations();
+                              });
+                                
+                            } else {
+                            }
+                        } else {
+                }
+            });
+        });
+        
+        */
+        
+    </script>
+    </head>
+    <body class="bg-bodycolor font-Arial text-[11px] text-textcolor">
+
+    <div class="bg-white max-w-[300px] sm:max-w-[440px] md:max-w-[98%] xl:container mx-auto px-4 border-[9px] border-bodercolor border-t-0 pr-3 md:pr-[20px] pl-3 md:pl-[20px] ">
+    <div class="container mx-auto">
+
+        <div class="flex min-h-screen w-full">      
+            <div class="w-full">
+                {{>nav}}  
+                <div class="w-full flex flex-wrap lg:pl-10 mb-3">
+               <ul class="department-list flex flex-wrap w-full"> </ul>
+            </div>                  
+                <div class="w-full">
+                    <div class="w-full py-3 flex flex-wrap items-center text-textcolor text-[11px] leading-[27px]">
+                        <a href="#" class="text-textcolor">Home</a> <span class="text-base mx-2 opacity-60"> > </span> <a href="#" class="text-textcolor">Store Locator</a>
+                    </div>
+                    {{!-- <style>
+                        .c-address-country-name.c-address-country-US {
+                           display: none;
+                        }
+                        .lp-param-results.lp-subparam-getDirectionsLabel {
+                            font-weight: bold;
+                        }
+                        .gm-control-active.gm-fullscreen-control {
+                            display: none;
+                        }
+                    </style> --}}
+                    {{>locator}}
+                </div>                
+            </div>
+        </div>
+        </div>
+</div>
+
+         {{>footer}}
+    </body>
+</html>

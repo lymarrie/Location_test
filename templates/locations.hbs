@@ -1,0 +1,67 @@
+---
+{
+    "stream": {
+        "$id": "locations",
+        "source": "knowledgeGraph",
+        "destination": "pages",
+        "filter" : {
+            "entityTypes": [
+                "location"
+            ],
+            "savedFilterIds":[
+               "885139055"
+            ]
+        },
+        "fields": [
+            "id", 
+            "uid", 
+            "meta",
+            "name", 
+            "address", 
+            "mainPhone",
+            "description", 
+            "hours",
+            "photoGallery",
+            "slug",
+            "geocodedCoordinate",
+            "services",
+            "neighborhood",
+            "paymentOptions",
+            "c_relatedFAQs.question",
+            "c_relatedFAQs.answer"
+        ],
+        "localization": {
+            "locales": ["en"]
+        }
+    },
+    "urlFormat": "{{slug}}"
+}
+---
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {{>head }}
+        <title>{{name}} - {{neighborhood}}</title>
+        {{>schema}}
+        <link rel="shortcut icon" type="image/jpg" href="/images/yext-favicon.png"/>
+    </head>
+    <body>      
+            <div class="w-full">
+                {{>nav}}
+                {{!-- <div class="centered-container">
+                    {{>backbutton}}
+                </div> --}}
+                {{>hero}}
+                <div class="centered-container">
+                    <div class="section">{{>locationdetails}} </div>
+                    <div class="section">{{>nearby geocodedCoordinate}}</div> 
+                    <script src="faqs.js"></script>  
+                </div>
+                <div class="w-full bg-gray-100">
+                    <div class="centered-container">
+                        {{>footer}}
+                    </div>
+                </div>
+            </div>
+    </body> 
+</html>
