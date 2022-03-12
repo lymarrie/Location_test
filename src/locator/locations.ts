@@ -47,7 +47,8 @@ export function locationJSONtoHTML(entityProfile, index, locationOptions) {
   let cardTitleLinkUrlValue = getValue(locationOptions.cardTitleLinkUrl);
   const hoursValue = getValue(locationOptions.hours);
   const addressValue = getValue(locationOptions.address);
-  const phoneNumberValue = getValue(locationOptions.phoneNumber);
+  const phone = getValue(locationOptions.phoneNumber);
+  const phoneNumberValue=phone.toString();
   let viewDetailsLinkUrlValue = getValue(locationOptions.viewDetailsLinkUrl);
 
   let html =
