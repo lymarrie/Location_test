@@ -308,23 +308,21 @@ export function highlightLocation(
       map.setCenter(marker.position);
     }
 
-  
-  
    var infoWindow = new google.maps.InfoWindow();
   
-    var $this=[];
+    // var $this=[];
     var $this= $('#result-'+index);
-    var location_name = $this.data('name');            
+     var location_name = $this.data('name');            
     var storelocationName = $this.find('.storelocation-name').html();
-    var address = $this.find('.address').html();
-    var openCloseTime = $this.find('.storelocation-openCloseTime').html();
+     var address = $this.find('.address').html();
+     var openCloseTime = $this.find('.storelocation-openCloseTime').html();
 
 
   var markerContent = '<div class="markerContent w-[350px] text-[#373333]">';
 
-  markerContent += '<div class="nameData text-lg mb-2 font-Futura font-black ">'+storelocationName+'</div>';
-  markerContent += '<div class="addressData float-left w-1/2 pr-3 text-[13px] leading-tight">'+address+'</div>';
-  markerContent += '<div class="openCloseTimeData float-left w-1/2 pl-3 text-[#373333] text-[13px] leading-tight capitalize">'+openCloseTime+'</div>';
+   markerContent += '<div class="nameData text-lg mb-2 font-Futura font-black ">'+storelocationName+'</div>';
+   markerContent += '<div class="addressData float-left w-1/2 pr-3 text-[13px] leading-tight">'+address+'</div>';
+   markerContent += '<div class="openCloseTimeData float-left w-1/2 pl-3 text-[#373333] text-[13px] leading-tight capitalize">'+openCloseTime+'</div>';
 
   markerContent += '</div>';
 
