@@ -22,6 +22,8 @@ import {
 import { getRequest, startLoading, stopLoading } from "./loader";
 import RtfConverter from "@yext/rtf-converter";
 import { highlightLocation } from "./map";
+// import $ from "jquery";
+
 
 export let currentLatitude = 0;
 export let currentLongitude = 0;
@@ -428,7 +430,7 @@ export function getDepartments() {
                 $.each(result.response.entities, function (index, entity) {
 
                   html += '<li class="department-list-item w-1/2 sm:w-1/3 md:w-1/4 mb-4" data-name="' + entity.name + '" data-id="' + entity.meta.id + '" >';
-                  html += '<div class="form-check relative"><input class="checkbox_departments absolute top-0 left-0  " type="checkbox" name="c_departments[]" value="' + entity.meta.id + '" id="' + entity.name + '">';
+                  html += '<div class="form-check relative"><input class="checkbox_departments absolute top-0 left-0   " type="checkbox" name="c_departments[]" value="' + entity.meta.id + '" id="' + entity.name + '">';
                   html += '<label class="relative pl-7 text-sm font-Futura font-light cursor-pointer" for="' + entity.name + '"> ' + entity.name + '</label>';
                   html += '</li>';
                       
